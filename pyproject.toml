@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "test-poetry-fallback"
+version = "0.1.0"
+description = "Poetry fallback test - tool.poetry absent, project.requires-python present"
+authors = ["Test <test@example.com>"]
+
+[tool.poetry.dependencies]
+# NOTE: python version intentionally NOT specified here
+requests = "2.31.0"
+Django = "2.2.0"
+flask = "2.2.5"
+
+[project]
+requires-python = ">=3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
