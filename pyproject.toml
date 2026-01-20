@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Poetry fallback test - tool.poetry absent, project.requires-python present"
 authors = ["Test <test@example.com>"]
 
+
 [tool.poetry.dependencies]
 # NOTE: python version intentionally NOT specified here
 requests = "2.31.0"
@@ -12,6 +13,8 @@ flask = "2.2.5"
 
 [project]
 requires-python = ">=3.11"
+name = "test-poetry-fallback"
+
 
 [build-system]
 requires = ["poetry-core"]
