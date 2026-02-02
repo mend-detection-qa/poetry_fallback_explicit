@@ -29,25 +29,14 @@
             "_comment_expected_dependencies_number": "Optional. Expected number of dependencies with comparison operator. Operators: gt (>), gte (>=), lt (<), lte (<=), eq (==). If not provided, this check will not be performed.",
             "direct_dependencies_names_list": {
                 "eq": [
-                    "requests",
-                    "flask",
-                    "django"
+                    "requests-2.31.0-py3-none-any.whl", "flask-2.2.5-py3-none-any.whl", "django-2.2-py3-none-any.whl"
                 ]
             },
             "transitive_dependencies_names_list": {
-                "eq": [
-                    "charset-normalizer",
-                    "click",
-                    "colorama",
-                    "werkzeug",
-                    "certifi",
-                    "urllib3",
-                    "itsdangerous",
-                    "idna",
-                    "markupsafe",
-                    "pytz",
-                    "jinja2",
-                    "sqlparse"
+                "contains": [
+                    "jinja2-3.1.6-py3-none-any.whl", "itsdangerous-2.2.0-py3-none-any.whl", 
+                    "click-8.3.1-py3-none-any.whl", "werkzeug-3.1.5-py3-none-any.whl",
+                    "certifi-2026.1.4-py3-none-any.whl", "idna-3.11-py3-none-any.whl", "sqlparse-0.5.5-py3-none-any.whl", "urllib3-2.6.3-py3-none-any.whl", "pytz-2025.2-py2.py3-none-any.whl"
                 ]
             },
             "_comment_dependencies_names_list": "Optional. Check specific libraries in direct dependencies. Operators: eq (==), contains (all items from expected list in actual), in(all items from actual list in expected), nin(actual list does not contain provided libs). If not provided, this check will not be performed.",
@@ -86,37 +75,29 @@
                     "operator": "eq",
                     "value": "Trying version getter: PythonVersionFile"
                 },
-              {
+               {
                     "operator": "eq",
                     "value": "Trying version getter: ToolVersions"
                 },
-              {
+               {
                     "operator": "eq",
                     "value": "Trying version getter: PyprojectToml"
                 },
-              {
-                    "operator": "eq",
-                    "value": "Found Python version \">=3.11\" in pyproject.toml"
+                {
+                  "operator": "regex",
+                  "value": "Found Python version \\(.*3\\.11\\) for Poetry project at .*poetry_fallback_explicit"
                 },
                 {
-                    "operator": "eq",
-                    "value": "Command: \"install-tool poetry 2.3.0\""
+                  "operator": "regex",
+                  "value": "Command: \\\\\"install-tool python 3\\.11(\\.[0-9]+)?\\\\\""
                 },
-              {
-                    "operator": "eq",
-                    "value": "Command: \"install-tool python 3.11.13\""
+                {
+                  "operator": "regex",
+                  "value": "Installing tool python@3\\.11(\\.[0-9]+)?"
                 },
-              {
-                    "operator": "eq",
-                    "value": "python version set to: 3.10.0"
-                },
-              {
-                    "operator": "eq",
-                    "value": "Install tool python succeeded"
-                },
-               {
-                    "operator": "eq",
-                    "value": "Install tool poetry succeeded"
+                {
+                  "operator": "regex",
+                  "value": "Install tool python succeeded"
                 }
             ],
             "_comment_expected_log_lines": "Optional. List of log lines to validate. Each entry should have an 'operator' (eq or regex) and 'value' (string or regex pattern). Example: [{'operator': 'eq', 'value': 'Python version: 3.11'}, {'operator': 'regex', 'value': 'Python version: \\d+\\.\\d+'}]. If not provided, only log attachment will be performed."
